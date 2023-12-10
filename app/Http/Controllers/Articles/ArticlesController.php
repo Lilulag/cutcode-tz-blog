@@ -16,13 +16,10 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Cache::remember('articles', 60*60*24, function () {
-            return Article::query()
-                ->with('category')
-                ->latest('created_at')
-                ->limit(6)
-                ->get();
-        });
+        $articles = Article::query()
+            ->orderBy('created_at', 'desc')
+            ->with('category')
+            ->paginate(6);
 
         return view('articles.index', compact('articles'));
     }

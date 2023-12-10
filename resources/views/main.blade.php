@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Статьи')
+@section('title', 'Лучшие статьи')
 
 @section('content')
     @include('partials.header')
@@ -10,7 +10,7 @@
     <main class="py-16 lg:py-20">
         <div class="container m-auto">
             <h1 class="text-[26px] sm:text-xl xl:text-[48px] 2xl:text-2xl font-black">
-                Статьи
+                Лучшие статьи
             </h1>
 
             <div class="tasks grid gap-4 grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-14 xl:gap-y-20 mt-12 md:mt-20">
@@ -41,10 +41,9 @@
                         </div>
                     </div>
                 @endforeach
-
-                {{ $articles->links('vendor.pagination.tailwind') }}
             </div>
         </div>
     </main>
+
     @include('partials.footer')
 @endsection
