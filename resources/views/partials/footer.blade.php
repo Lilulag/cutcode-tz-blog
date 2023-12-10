@@ -1,6 +1,6 @@
 
 <footer class="footer py-8 sm:py-12 xl:py-16 bg-darkblue text-white">
-    <div class="container">
+    <div class="container m-auto">
         <div class="flex flex-wrap lg:flex-nowrap items-center">
             <div class="footer-logo order-0 basis-full sm:basis-1/2 lg:basis-1/3 shrink-0 text-center sm:text-left">
                 <a href="/" rel="home">
