@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('img');
             $table->string('link');
             $table->string('author');
+            $table->foreignIdFor(\App\Models\Category::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->timestamps();
         });

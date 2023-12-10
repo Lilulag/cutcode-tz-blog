@@ -1,6 +1,6 @@
 
 <header class="header pt-6 xl:pt-12">
-    <div class="container">
+    <div class="container m-auto">
         <div class="header-inner flex items-center justify-between lg:justify-start">
             <div class="header-logo shrink-0">
                 <a href="/" rel="home">
