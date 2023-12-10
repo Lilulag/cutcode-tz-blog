@@ -17,6 +17,6 @@ class MainController extends Controller
                 ->get();
         });
 
-        return view('main', compact('articles'));
+        return view('welcome', compact('articles'));
     }
 }

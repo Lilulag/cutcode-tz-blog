@@ -13,9 +13,10 @@
 
             <div class="header-menu grow hidden lg:flex items-center ml-8 mr-8 gap-8">
                 <nav class="2xl:flex gap-8">
-                    <a href="articles.html"
-                       class="ml-4 mr-4 text-white hover:text-pink"
-                    >
+                    <a href="/" class="ml-4 mr-4 text-white hover:text-pink" >
+                        Главная
+                    </a>
+                    <a href="{{ route('articles.index') }}" class="ml-4 mr-4 text-white hover:text-pink" >
                         Статьи
                     </a>
                 </nav>

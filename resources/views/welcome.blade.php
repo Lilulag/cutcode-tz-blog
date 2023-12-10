@@ -1,11 +1,8 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('title', 'Лучшие статьи')
 
 @section('content')
-    @include('partials.header')
-
-    @include('partials.menu')
 
     <main class="py-16 lg:py-20">
         <div class="container m-auto">
