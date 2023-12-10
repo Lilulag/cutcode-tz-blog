@@ -1,14 +1,14 @@
 
-<footer class="footer py-8 sm:py-12 xl:py-16 bg-darkblue text-white">
+<footer class="footer py-8 sm:py-12 xl:py-16 bg-gray-300 text-white">
     <div class="container m-auto">
         <div class="flex flex-wrap lg:flex-nowrap items-center">
             <div class="footer-logo order-0 basis-full sm:basis-1/2 lg:basis-1/3 shrink-0 text-center sm:text-left">
-                <a href="/" rel="home">
-                    <img alt="CutCode"
-                         class="w-[148px] md:w-[201px] h-[36px] md:h-[50px] inline-block"
-                         src="{{ asset('images/nav/logo.svg') }}"
-                    >
-                </a>
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="/">
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    </a>
+                </div>
             </div><!-- /.footer-logo -->
 
             <div class="footer-copyright order-2 lg:order-1 basis-full lg:basis-1/3 mt-8 lg:mt-0">
