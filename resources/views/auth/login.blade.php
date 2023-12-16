@@ -2,46 +2,70 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+    <main class="bg-darkblue text-gray-600 md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">
+        <div class="container">
+            <div class="text-center">
+                <a rel="home" href="/">
+                    <img alt="CutCode"
+                         class="w-[148px] md:w-[201px] h-[36px] md:h-[50px] inline-block"
+                         src="{{ asset('images/nav/logo-dark.svg') }}"
+                    >
                 </a>
-            @endif
+            </div>
+            <div class="max-w-[640px] mt-12 mx-auto p-6 xs:p-8 md:p-12 2xl:p-16 rounded-[20px] bg-purple">
+                <h1 class="mb-5 text-lg text-gray-600 font-semibold">Вход в аккаунт</h1>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+                <form method="POST" action="{{ route('login') }}" class="space-y-3">
+                    @csrf
+
+                    <!-- Email Address -->
+                    <div class="mt-4">
+                        <x-text-input id="email"
+                                      placeholder="E-mail"
+                                      class="block mt-1 w-full w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-gray-600 placeholder:text-gray-600 text-xxs md:text-xs font-semibold"
+                                      type="email" name="email"
+                                      :value="old('email')" required autofocus autocomplete="email" />
+                        <x-input-error :messages="$errors->get('email')"
+                                       class="mt-3 text-pink text-xxs xs:text-xs"
+                        />
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mt-4">
+                        <x-text-input id="password" class="block mt-1 w-full w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-gray-600 placeholder:text-gray-600 text-xxs md:text-xs font-semibold"
+                                      type="password" name="password"
+                                      placeholder="Пароль"
+                                      required autocomplete="current-password" />
+
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-primary-button class="w-full btn btn-pink justify-center">
+                            Войти
+                        </x-primary-button>
+                    </div>
+                </form>
+
+                <div class="space-y-3 mt-4 flex justify-between">
+                    <div class="text-xxs md:text-xs inline-flex">
+                        @if (Route::has('password.request'))
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                               href="{{ route('password.request') }}">
+                                Забыли пароль?
+                            </a>
+                        @endif
+                    </div>
+                    <div class="text-xxs md:text-xs inline-flex">
+                        @if (Route::has('register'))
+                            <a class="text-gray-600 hover:text-gray-900 font-bold"
+                               href="{{ route('register') }}">
+                                Регистрация
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+    </main>
 </x-guest-layout>
