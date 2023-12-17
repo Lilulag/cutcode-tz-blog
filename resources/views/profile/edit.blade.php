@@ -45,7 +45,7 @@
                     </form>
 
                     <form method="post" action="{{ route('profile.update') }}"
-                          class="space-y-3 @if ((!Session::has('status') || session('status') === 'profile-updated')) hidden @endif"
+                          class="space-y-3 @if ((!Session::has('status') || session('status') === 'profile-updated') || session('status') === 'password-updated')) hidden @endif"
                           id="changeForm">
                         @csrf
                         @method('patch')
@@ -79,31 +79,32 @@
 
                         <button class="mt-4 w-full btn btn-pink" type="submit"> Сохранить</button>
                     </form>
-                    <form class="space-y-3 hidden" id="changePasswordForm">
-                        <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
+                    <form action="{{ route('password.update') }}" method="post" class="space-y-3 hidden" id="changePasswordForm">
+                        @csrf
+                        @method('put')
+
+                        <input class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-gray-600 placeholder:text-gray-600 text-xxs md:text-xs font-semibold"
                                type="password"
                                required=""
+                               name="current_password"
                                autocomplete="current-password"
                                placeholder="Текущий пароль"
                         >
 
                         <input
-                            class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
+                            class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-gray-600 placeholder:text-gray-600 text-xxs md:text-xs font-semibold"
                             type="password" required="" autocomplete="new-password" placeholder="Новый пароль"
+                            name="password"
                         >
 
                         <input
-                            class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
+                            class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/10 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-gray-600 placeholder:text-gray-600 text-xxs md:text-xs font-semibold"
                             type="password" required="" autocomplete="new-password" placeholder="Повторите пароль"
+                            name="password_confirmation"
                         >
 
                         <button class="w-full btn btn-pink" type="submit"> Сменить пароль</button>
 
-                        <div>
-                            <div class="text-center p-4 my-4 rounded-lg shadow-xl bg-card" style="display: none;"> Новый
-                                пароль установлен
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
