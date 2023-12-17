@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile/avatar-store', [ProfileController::class, 'avatarStore'])->name('profile.avatar.store');
+    Route::post('/profile/avatar-delete', [ProfileController::class, 'avatarDelete'])->name('profile.avatar.delete');
 });
 
 require __DIR__.'/auth.php';
