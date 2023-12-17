@@ -15,4 +15,9 @@ class Article extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function getImageUrlAttribute()
+    {
+        return $this->img ? url('storage/images/'.$this->img) : '';
+    }
 }
