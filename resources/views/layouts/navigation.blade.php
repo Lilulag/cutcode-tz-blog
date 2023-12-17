@@ -27,7 +27,16 @@
                 </div>
             @endguest
 
-            @auth()
+            @auth('admin')
+                <!-- Authentication -->
+                <form method="POST" class="sm:-my-px sm:ms-10 sm:flex" action="{{ route('admin.logout_action') }}">
+                    @csrf
+
+                    <button>Выход</button>
+                </form>
+            @endauth
+
+            @auth('web')
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <x-dropdown align="right" width="48">
